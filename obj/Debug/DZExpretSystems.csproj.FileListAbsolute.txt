@@ -1,6 +1,0 @@
-c:\users\hp\documents\visual studio 2015\Projects\DZExpretSystems\DZExpretSystems\bin\Debug\DZExpretSystems.exe.config
-c:\users\hp\documents\visual studio 2015\Projects\DZExpretSystems\DZExpretSystems\bin\Debug\DZExpretSystems.exe
-c:\users\hp\documents\visual studio 2015\Projects\DZExpretSystems\DZExpretSystems\bin\Debug\DZExpretSystems.pdb
-c:\users\hp\documents\visual studio 2015\Projects\DZExpretSystems\DZExpretSystems\obj\Debug\DZExpretSystems.csprojResolveAssemblyReference.cache
-c:\users\hp\documents\visual studio 2015\Projects\DZExpretSystems\DZExpretSystems\obj\Debug\DZExpretSystems.exe
-c:\users\hp\documents\visual studio 2015\Projects\DZExpretSystems\DZExpretSystems\obj\Debug\DZExpretSystems.pdb

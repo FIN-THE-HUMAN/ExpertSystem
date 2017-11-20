@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DZExpretSystems
+namespace ExpertSystemDZLast
 {
-    public enum TypeDinamic
+   public enum TypeDinamic
     {
         Static, Dynamic
     }
@@ -25,5 +25,4 @@ namespace DZExpretSystems
     {
         Hight, Middle, Low
     }
-
 }

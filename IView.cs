@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DZExpretSystems
+namespace ExpertSystemDZLast
 {
-    public class LangExpertSystem : ExpertSystem<Language>
+    public interface IView
     {
-        
+
     }
 }

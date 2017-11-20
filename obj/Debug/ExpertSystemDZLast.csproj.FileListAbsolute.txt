@@ -1,0 +1,6 @@
+c:\users\hp\documents\visual studio 2015\Projects\ExpertSystemDZLast\ExpertSystemDZLast\bin\Debug\ExpertSystemDZLast.exe.config
+C:\Users\hp\documents\visual studio 2015\Projects\ExpertSystemDZLast\ExpertSystemDZLast\bin\Debug\ExpertSystemDZLast.exe
+C:\Users\hp\documents\visual studio 2015\Projects\ExpertSystemDZLast\ExpertSystemDZLast\bin\Debug\ExpertSystemDZLast.pdb
+C:\Users\hp\documents\visual studio 2015\Projects\ExpertSystemDZLast\ExpertSystemDZLast\obj\Debug\ExpertSystemDZLast.csprojResolveAssemblyReference.cache
+C:\Users\hp\documents\visual studio 2015\Projects\ExpertSystemDZLast\ExpertSystemDZLast\obj\Debug\ExpertSystemDZLast.exe
+C:\Users\hp\documents\visual studio 2015\Projects\ExpertSystemDZLast\ExpertSystemDZLast\obj\Debug\ExpertSystemDZLast.pdb

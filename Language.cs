@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DZExpretSystems
+namespace ExpertSystemDZLast
 {
     public class Language : IFact
     {
@@ -15,13 +15,13 @@ namespace DZExpretSystems
         public Level Level { get; private set; }
         public int Year { get; private set; }
 
-        public Language(string name, TypeDinamic td, TypeStrength ts, Execution ex, Level l, int year)
+        public Language(string name, TypeDinamic typeDinamic, TypeStrength typeStrength, Execution execution, Level level, int year)
         {
             Name = name;
-            TypeDinamic = td;
-            TypeStrength = ts;
-            Execution = ex;
-            Level = l;
+            TypeDinamic = typeDinamic;
+            TypeStrength = typeStrength;
+            Execution = execution;
+            Level = level;
             Year = year;
         }
     }

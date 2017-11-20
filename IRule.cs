@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ExpertSystemDZLast
 {
-    public interface IFact
+    public interface IRule<F> where F : IFact
     {
-
+        bool IsFactValide(F fact);
+        string GetApplyingResult(F fact);
     }
 }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DZExpretSystems
+namespace ExpertSystemDZLast
 {
-    public interface IObserable<T> where T : IObserver
+    public interface IAction
     {
-
+        string Execute();
     }
 }

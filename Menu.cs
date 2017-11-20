@@ -4,82 +4,63 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DZExpretSystems
+namespace ExpertSystemDZLast
 {
-    public class Menu<T> : IObserable<T> where T : IObserver    //создать ExpertSystemMenu : Menu<ExpertSystem>
+    public class Menu : IObservable, IView
     {
-        public T Observer { get; }                                                  // убрать, оставить ссылку в каждой Команде(выс. ур), в итоге связь observer и command(низ. ур) будет в фабрике
-        public Dictionary<string, ConsoleCommand<T>> Commands { get; }              // заменить на новый абстрактный тип данных Команда(выс. ур), для создания которого будет фабрика
-        public Dictionary<string, LangRules.AbstractRole<T>> Commands1 { get; }
-        public string End { get; set; }                                             //переместить в ExpertSystem или ConsoleExpertSystem
+        public List<Event> Events { get; }
+        public string End { get; }
+        public bool Closed { get; private set; }
+        public PresenterMenu Presenter;
 
-        public Menu(T observer, string end)
+        public Menu(string end, PresenterMenu presenter)
         {
-            Commands = new Dictionary<string, ConsoleCommand<T>>();
-            Commands1 = new Dictionary<string, LangRules.AbstractRole<T>>();
-            Observer = observer;
+            Events = new List<Event>();
             End = end;
-        }
-        
-        public void AddEventListener(string key, string description, ICommand<T> command)
-        {
-            Commands.Add(key, new ConsoleCommand<T>(description, command) );
+            Closed = false;
+            Presenter = presenter;
         }
 
-        public void AddEventListener(string key, string description, LangRules.Role action)
+        public void Open()
         {
-            Commands1.Add(key, new LangRules.AbstractRole<T>(description, action, Observer));
+            Closed = false;
         }
 
-        private string ExecuteByDelegate(string key)
+        public void SetPresenter(PresenterMenu presenter)
         {
-            string result;
-            if (Commands1.ContainsKey(key))
-                result = Commands1[key].Execute();
-            else
+            Presenter = presenter;
+        }
+
+        public void AddEvent(Event e)
+        {
+            Events.Add(e);
+        }
+
+        public void UpdatePresenter(string changse)
+        {
+            Presenter.Update(changse);
+        }
+
+        public void Listen(string key)
+        {
+            if (key == End)
             {
-                result = "There isn't command such ";
-                result += key;
-                result += '\n';
+                Closed = true;
+                return;
             }
-            return result;
-        }
 
-        private string ExecuteByKey(string key)
-        {
-            string result;
-            if (Commands.ContainsKey(key))
-                result = Commands[key].Execute();
-            else
-            {
-                result = "There isn't command such ";
-                result += key;
-                result += '\n';
-            }
-            return result;
-        }
+            StringBuilder s = new StringBuilder();
 
-        public void Show()
-        {
-            Console.WriteLine("Choose rule application:");
-            Console.WriteLine($"{End}) Exit");
-            foreach (string s in Commands.Keys)
+            var EventList = from e in Events where e.Key == key select e;
+            foreach(var e in EventList)
             {
-                Console.Write($"{s}) ");
-                Console.WriteLine(Commands[s].Description); 
+                s.Append(e.Execute());
+                //s.Append(Environment.NewLine);
+                //s.Append(Environment.NewLine);
             }
-            Console.Write(">> ");
-        }
 
-        public void Start()
-        {
-            string key = "";
-            while (key != End)
-            {
-                Show();
-                key = Console.ReadLine();
-                Console.WriteLine(ExecuteByKey(key));
-            }
+            if (Presenter != null) UpdatePresenter(s.ToString());
+
         }
     }
 }
