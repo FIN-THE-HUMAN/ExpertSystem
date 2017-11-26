@@ -10,11 +10,13 @@ namespace ExpertSystemDZLast
     {
         private FactsRepository<F> _factsRepository;
         private IRule<F> _rule;
+        private ILogger<F> _logger;
 
-        public ActionRepository(FactsRepository<F> factsRepository, IRule<F> rule)
+        public ActionRepository(FactsRepository<F> factsRepository, IRule<F> rule, ILogger<F> logger)
         {
             _factsRepository = factsRepository;
             _rule = rule;
+            _logger = logger;
         }
 
         public string Execute()
@@ -25,11 +27,10 @@ namespace ExpertSystemDZLast
             {
                 if (_rule.IsFactValide(f))
                 {
-                    s.Append(_rule.GetApplyingResult(f));
+                    s.Append(_logger.Log(f));
                     //s.Append(Environment.NewLine);
                 }
             }
-
             return s.ToString();
         }
     }

@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace ExpertSystemDZLast
 {
-    public class Typisation : RuleApplyingResultLangName
+    public class RuleTypisation : IRule<Language>
     {
         public TypeDinamic Type { get; }
         
-        public Typisation(TypeDinamic type)
+        public RuleTypisation(TypeDinamic type)
         {
             Type = type;
         }
 
-        public override bool IsFactValide(Language fact)
+        public bool IsFactValide(Language fact)
         {
             if (fact.TypeDinamic == Type) return true;
             return false;

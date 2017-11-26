@@ -8,7 +8,6 @@ namespace ExpertSystemDZLast
 {
     public class Application
     {
-        
         public Menu Menu { get; }
         public PresenterMenu Presenter{ get; }
 

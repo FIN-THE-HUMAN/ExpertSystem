@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ExpertSystemDZLast
 {
-    public interface IRule<F> where F : IFact
+    public interface ILogger<F> where F : IFact
     {
-        bool IsFactValide(F fact);
+        string Log(F fact);
     }
 }

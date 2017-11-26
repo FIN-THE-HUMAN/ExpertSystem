@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace ExpertSystemDZLast
 {
-    public class RuleApplyingResultLangName : IRule<Language>
+    public class LangNameLogger : ILogger<Language>
     {
-        public string GetApplyingResult(Language fact)
+        public LangNameLogger()
+        {
+
+        }
+
+        public string Log(Language fact)
         {
             StringBuilder s = new StringBuilder();
             s.Append(fact.Name.ToString());
             s.Append(Environment.NewLine);
             return s.ToString();
-        }
-
-        public virtual bool IsFactValide(Language fact)
-        {
-            return false;
         }
     }
 }

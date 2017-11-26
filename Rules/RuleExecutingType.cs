@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace ExpertSystemDZLast
 {
-    public class ExecutingType : RuleApplyingResultLangName
+    public class RuleExecutingType : IRule<Language>
     {
-        public Execution Execution { get; }
+        public Execution Execution { get; private set; }
 
-        public ExecutingType(Execution execution)
+        public RuleExecutingType(Execution execution)
         {
             Execution = execution;
         }
 
-        public override bool IsFactValide(Language fact)
+        public bool IsFactValide(Language fact)
         {
             if (fact.Execution == Execution) return true;
             return false;

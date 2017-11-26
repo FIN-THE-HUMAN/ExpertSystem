@@ -43,10 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionEventFabric.cs" />
     <Compile Include="ActionRepository.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="Event.cs" />
-    <Compile Include="Rules\ExecutingType.cs" />
+    <Compile Include="EventInfoReaderConsole.cs" />
+    <Compile Include="IEventInfoReader.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="ILoggerFabric.cs" />
+    <Compile Include="IRuleFabric.cs" />
+    <Compile Include="LangLoggerFabric.cs" />
+    <Compile Include="LangNameLogger.cs" />
+    <Compile Include="RuleNameContainFabric.cs" />
+    <Compile Include="Rules\RuleNameContain.cs" />
+    <Compile Include="Rules\RuleExecutingType.cs" />
     <Compile Include="FactsRepository.cs" />
     <Compile Include="IAction.cs" />
     <Compile Include="IFact.cs" />
@@ -58,13 +68,13 @@
     <Compile Include="Language.cs" />
     <Compile Include="LanguageParams.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="Rules\MoreThenYearRule.cs" />
+    <Compile Include="Rules\RuleMoreThenYear.cs" />
     <Compile Include="PresenterConsole.cs" />
     <Compile Include="PresenterMenu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rules\RuleApplyingResultLangName.cs" />
-    <Compile Include="Rules\Typisation.cs" />
+    <Compile Include="Rules\RuleTypisation.cs" />
+    <Compile Include="Rules\RuleStrenght.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

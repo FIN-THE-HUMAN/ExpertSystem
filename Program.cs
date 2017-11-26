@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ExpertSystemDZLast
 {
+    //Добавить CustomRule, включающих правила, исполнение которых необходимо для его применения ; 
+    //rule3.add(rule1), rule3.add(rule2) ;rule3 => if(AllrulesTrue) true;
     class Program
     {
         static void Main(string[] args)
@@ -25,10 +27,12 @@ namespace ExpertSystemDZLast
             repository.AddFact(new Language("Lisp",         TypeDinamic.Dynamic,TypeStrength.Strong,Execution.Interpreted,  Level.Hight, 1958));
             repository.AddFact(new Language("Fortran",      TypeDinamic.Static, TypeStrength.Strong,Execution.Compiled,     Level.Hight, 1957));
 
-            menu.AddEvent(new Event("1","Choose Languages with year >= 2000",new ActionRepository<Language>(repository, new MoreThenYearRule(2000))));
-            menu.AddEvent(new Event("2","Choose Interpreted Languages", new ActionRepository<Language>(repository, new ExecutingType(Execution.Interpreted))));
-            menu.AddEvent(new Event("3","Choose Static Languages", new ActionRepository<Language>(repository, new Typisation(TypeDinamic.Static))));
-
+            menu.AddEvent(new Event("1","Choose Languages with year >= 2000", new ActionRepository<Language>(repository, new RuleMoreThenYear(2000), new LangNameLogger())));
+            menu.AddEvent(new Event("2","Choose Interpreted Languages", new ActionRepository<Language>(repository, new RuleExecutingType(Execution.Interpreted), new LangNameLogger())));
+            menu.AddEvent(new Event("3","Choose Static Languages", new ActionRepository<Language>(repository, new RuleTypisation(TypeDinamic.Static), new LangNameLogger())));
+            menu.AddEvent(new Event("4","Choose Strong Languages", new ActionRepository<Language>(repository, new RuleStrenght(TypeStrength.Strong), new LangNameLogger())));
+            menu.AddEvent(new Event("5","Choose C Languages", new ActionRepository<Language>(repository, new RuleNameContain("C"), new LangNameLogger())));
+            menu.AddEvent(new Event("6", "Make new Rule", new ActionEventFabric<Language>(repository, new RuleNameContainFabric(), new LangLoggerFabric(), menu, new EventInfoReaderConsole())));
             Application a = new Application(menu, presenter);
             a.Start();
         }

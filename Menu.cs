@@ -26,11 +26,6 @@ namespace ExpertSystemDZLast
             Closed = false;
         }
 
-        public void SetPresenter(PresenterMenu presenter)
-        {
-            Presenter = presenter;
-        }
-
         public void AddEvent(Event e)
         {
             Events.Add(e);
@@ -39,6 +34,16 @@ namespace ExpertSystemDZLast
         public void UpdatePresenter(string changse)
         {
             Presenter.Update(changse);
+        }
+
+        List<Event> GetEventsByKey(string key)
+        {
+            List<Event> result = new List<Event>();
+            foreach (var e in Events)
+            {
+                if (key == e.Key) result.Add(e);
+            }
+            return result;
         }
 
         public void Listen(string key)
@@ -51,16 +56,13 @@ namespace ExpertSystemDZLast
 
             StringBuilder s = new StringBuilder();
 
-            var EventList = from e in Events where e.Key == key select e;
-            foreach(var e in EventList)
+            var EventList = GetEventsByKey(key);
+            foreach (var e in EventList)
             {
                 s.Append(e.Execute());
-                //s.Append(Environment.NewLine);
-                //s.Append(Environment.NewLine);
             }
 
             if (Presenter != null) UpdatePresenter(s.ToString());
-
         }
     }
 }

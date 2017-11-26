@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace ExpertSystemDZLast
 {
-    public class MoreThenYearRule : RuleApplyingResultLangName
+    public class RuleMoreThenYear : IRule<Language>
     {
         int Year { get; }
-        public MoreThenYearRule(int year)
+        public RuleMoreThenYear(int year)
         {
             Year = year;
         }
 
-        public override bool IsFactValide(Language fact)
+        public bool IsFactValide(Language fact)
         {
             if (fact.Year >= Year) return true;
             return false;
